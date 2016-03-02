@@ -13,7 +13,9 @@ export default Ember.Component.extend({
   }),
 
   change: function() {
-    this.set('checked', this.get('value'));
+    let value = this.get('value');
+    this.set('checked', value);
+    this.sendAction('changed', value);
   },
 
   _setCheckedProp: function() {
