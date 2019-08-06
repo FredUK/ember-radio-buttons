@@ -14,7 +14,11 @@ export default Ember.Component.extend({
 
   change: function() {
     let value = this.get('value');
-    this.set('checked', value);
+    try {
+      this.set('checked', value);
+    } catch (error) {
+      // no-op
+    }
     this.sendAction('changed', value);
   },
 
